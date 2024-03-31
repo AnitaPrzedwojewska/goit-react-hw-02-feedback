@@ -1,33 +1,72 @@
-// import { Section } from './Sections/sections';
-import { Statistics } from './Statistics/statistics';
+import React, { Component } from 'react';
+import { Wrapper } from './app.styled';
 
-const data = [
-  { id: 'id-1', label: 'good', quantity: 3, percentage: 50 },
-  { id: 'id-2', label: 'neutral', quantity: 2, percentage: 33 },
-  { id: 'id-3', label: 'bad', quantity: 1, percentage: 17 },
-];
+export class App extends Component {
+  constructor() {
+    super();
+    this.handleFeedbackGoodChange = this.handleFeedbackGoodChange.bind(this);
+    this.handleFeedbackNeutralChange =
+      this.handleFeedbackNeutralChange.bind(this);
+    this.handleFeedbackBadChange = this.handleFeedbackBadChange.bind(this);
+    this.state = {
+      good: 0,
+      neutral: 0,
+      bad: 0,
+    };
+  }
 
-export const App = () => {
-  return (
-    <div
-      style={{
-        // height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      <div>
+  handleFeedbackGoodChange() {
+    this.setState({ good: this.state.good + 1 });
+  }
+  handleFeedbackNeutralChange() {
+    this.setState({ neutral: this.state.neutral + 1 });
+  }
+  handleFeedbackBadChange() {
+    this.setState({ bad: this.state.bad + 1 });
+  }
+
+  render() {
+    return (
+      <Wrapper>
         <h2>Please leave feedback</h2>
-        <div class="form">
-          <button type="button">Good</button>
-          <button type="button">Neutral</button>
-          <button type="button">Bad</button>
+        <div>
+          <button type="button" count="good" onClick={this.handleFeedbackGoodChange}>
+            Good
+          </button>
+          <button type="button" count="" onClick={this.handleFeedbackNeutralChange}>
+            Neutral
+          </button>
+          <button type="button" count="bad" onClick={this.handleFeedbackBadChange}>
+            Bad
+          </button>
         </div>
-      </div>
-      <Statistics title="Statistics" stats={data}></Statistics>
-    </div>
-  );
-};
+        <h2>Statistic</h2>
+        <p>
+          Good: <span>{this.state.good}</span>
+        </p>
+        <p>
+          Neutral: <span>{this.state.neutral}</span>
+        </p>
+        <p>
+          Bad: <span>{this.state.bad}</span>
+        </p>
+      </Wrapper>
+    );
+  }
+}
+
+// export const App = () => {
+//   return (
+//     <Wrapper>
+//       <div>
+//         <h2>Please leave feedback</h2>
+//         <div class="form">
+//           <button type="button">Good</button>
+//           <button type="button">Neutral</button>
+//           <button type="button">Bad</button>
+//         </div>
+//       </div>
+//       <Statistics title="Statistics" stats={data}></Statistics>
+//     </Wrapper>
+//   );
+// };
