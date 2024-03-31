@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Wrapper } from './app.styled';
+import { Statistics } from './Statistics/Statistics';
 
 export class App extends Component {
   constructor() {
@@ -30,7 +31,9 @@ export class App extends Component {
   }
 
   countPositiveFeedbackPercentage() {
-    return this.countTotalFeedback() ? this.state.good / this.countTotalFeedback() : 'can not count';
+    return this.countTotalFeedback()
+      ? ((this.state.good / this.countTotalFeedback()) * 100).toFixed(0)
+      : 'can not count';
   }
 
   render() {
@@ -62,7 +65,14 @@ export class App extends Component {
             Bad
           </button>
         </div>
-        <h2>Statistic</h2>
+        <Statistics
+          good={this.state.good}
+          neutral={this.state.neutral}
+          bad={this.state.bad}
+          total={total}
+          percentageGood={percentageGood}
+        />
+        {/* <h2>Statistic</h2>
         <p>
           Good: <span>{this.state.good}</span>
         </p>
@@ -76,8 +86,8 @@ export class App extends Component {
           Total: <span>{total}</span>
         </p>
         <p>
-          Positive feedback: <span>{percentageGood}</span>
-        </p>
+          Positive feedback: <span>{percentageGood} %</span>
+        </p> */}
       </Wrapper>
     );
   }
