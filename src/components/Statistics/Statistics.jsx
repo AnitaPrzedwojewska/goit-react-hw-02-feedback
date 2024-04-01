@@ -6,7 +6,7 @@ export class Statistics extends Component {
     neutral: 0,
     bad: 0,
     total: 0,
-    percentageGood: ''
+    positivePercentage: '',
   };
 
   render() {
@@ -14,10 +14,9 @@ export class Statistics extends Component {
     const neutral = this.props.neutral;
     const bad = this.props.bad;
     const total = this.props.total;
-    const percentageGood = this.props.percentageGood;
+    const positivePercentage = this.props.positivePercentage;
     return (
       <>
-        <h2>Statistic</h2>
         <p>
           Good: <span>{good}</span>
         </p>
@@ -31,7 +30,7 @@ export class Statistics extends Component {
           Total: <span>{total}</span>
         </p>
         <p>
-          Positive feedback: <span>{percentageGood} %</span>
+          Positive feedback: <span>{positivePercentage} %</span>
         </p>
       </>
     );
