@@ -1,9 +1,21 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+
+export const OptionsList = styled.ul`
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  padding-inline-start: 0;
+`;
+
+export const Option = styled.li`
+`
 
 export const Button = styled.button`
-display: block;
+  display: block;
   padding: 5px 20px;
-  fontSize: 20,
-  backgroundColor: red
-  color: '#fff'
+  font-size: 20px;
+  background-color: lightgrey;
+  border: 1px solid grey;
+  border-radius: 5px;
+  cursor: pointer;
 `;
