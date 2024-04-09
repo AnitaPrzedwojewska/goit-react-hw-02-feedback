@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const StatsList = styled.ul`
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
   list-style: none;
   padding-inline-start: 0;
 `;
@@ -13,7 +14,8 @@ export const StatItem = styled.li`
 
 export const StatsResultsList = styled.ul`
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
   list-style: none;
   padding-inline-start: 0;
 `;

@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const OptionsList = styled.ul`
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
   list-style: none;
   padding-inline-start: 0;
 `;
