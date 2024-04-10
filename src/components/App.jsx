@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Wrapper } from './app.styled';
 import { Section } from './Section/section';
-import { Statistics } from './Statistics/statistics';
+import { Statistics } from './Stats/statistics';
 import { FeedbackOptions } from './FeedbackOptions/feedbackOptions';
 import { Notification } from './Notification/notification';
 
